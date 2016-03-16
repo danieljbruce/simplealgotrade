@@ -1,0 +1,6 @@
+# Tables:
+# Prices - columns (sourceid, timestamp, entity, time, value)
+# Commissions - columns (sourceid, timestamp, entity, time, buyorsell, fixedcost, unitcost)
+# Sources - columns (sourceid, timestamp, description)
+# StrategySimulation - columns (strategyid, timestamp, ) (PK: strategyid)
+# StrategySimulationDetail - columns (stores a StrategySimulation object in the database)
