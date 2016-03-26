@@ -1,6 +1,10 @@
 # Tables:
-# Prices - columns (sourceid, timestamp, entity, time, value)
-# Commissions - columns (sourceid, timestamp, entity, time, buyorsell, fixedcost, unitcost)
+# TimeSeriesData - columns (dataid PK, time PK, type, value) # Any time series data is stored in this table # entity states the type of data it is
+# # Prices - columns (dataid PK, sourceid, timestamp, ticker, description)
+# # Commissions - columns (dataid PK, sourceid, timestamp, buysellflag, fixedcost, variablecost)
+# # Signals - columns ?
 # Sources - columns (sourceid, timestamp, description)
-# StrategySimulation - columns (strategyid, timestamp, ) (PK: strategyid)
+# StrategySimulation - columns (strategyid PK, timestamp, ) (PK: strategyid)
 # StrategySimulationDetail - columns (stores a StrategySimulation object in the database)
+# Views:
+# qryTimeSeriesDataSummary
