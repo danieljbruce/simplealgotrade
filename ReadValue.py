@@ -2,7 +2,7 @@ __author__ = 'Daniel'
 
 import sqlite3, csv
 
-def ReadValue(pEntity, pTime, pDataBaseName = 'simplealgotrade.db', pSource = 0):
+def ReadValue(pEntity, pTime, pSource = 0, pDataBaseName = 'simplealgotrade.db'):
     # Returns the most recent value for the Entity pEntity before pTime
     # Test case: No results returned
     # pTime: The number of seconds since 1900 Jan 1, 00:00:00
@@ -20,9 +20,9 @@ def ReadValue(pEntity, pTime, pDataBaseName = 'simplealgotrade.db', pSource = 0)
             returnValue = row['Value']
             continue
         return returnValue # Exception needs to be programmed.
+        db.close()
     except:
         print("Exception when reading value from database.")
     #for row in cursor:
     # row['name'] returns the name column in the query, row['email'] returns email column.
     # print('{0} : {1}, {2}'.format(row['name'], row['email'], row['phone']))
-    db.close()

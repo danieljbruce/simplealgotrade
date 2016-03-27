@@ -7,7 +7,7 @@ class Trade(dict):
         self.units = pUnits # The number of units to trade. Positive (Negative) represents a Buy (Sell).
         return
 
-    def cost(self, pDatabase='simplealgotrade.db'):
+    def cost(self, pSource = 0, pDatabase='simplealgotrade.db'):
         return 0
 
     # Dictionary Overrides

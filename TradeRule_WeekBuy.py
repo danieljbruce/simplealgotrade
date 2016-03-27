@@ -12,12 +12,12 @@ class TradeRule_WeekBuy(TradeRule):
         if 'EURUSD' not in pPortfolio.keys():
             pPortfolio['EURUSD'] = 0
         if pTime % (60*60*24*7) <= 60*60*24*2 and pPortfolio['EURUSD'] == 0: # If statement to enter long position.
-            print 'Buy EURUSD at price ', ReadValue('EURUSD', pTime)
+            print('Buy EURUSD at price ', ReadValue('EURUSD', pTime))
             if ReadValue('EURUSD', pTime) != 0:
                 self.units = int(pPortfolio['__cash__'] / ReadValue('EURUSD', pTime))
                 return Trade(pTime, 'EURUSD', self.units)
         if pTime % (60*60*24*7) >= 60*60*24*2 and pPortfolio['EURUSD'] != 0: # If statement to exit long position.
-            print 'Sell EURUSD at price ', ReadValue('EURUSD', pTime)
+            print('Sell EURUSD at price ', ReadValue('EURUSD', pTime))
             return Trade(pTime, 'EURUSD', -self.units)
             self.units = 0
         return None # No trade is made

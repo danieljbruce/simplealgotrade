@@ -1,6 +1,7 @@
 __author__ = 'Daniel'
 
 from copy import *
+from Position import *
 
 class TradeRule():
     # This class generates a StrategySimulation when the 'generate' method is called.
@@ -40,9 +41,9 @@ class TradeRule():
 
     def generate_positions_from_trades(self, pStartTime, pEndTime, pTimeStep, pInitialPortfolio, pTrades):
         # Trades should be ordered
-        positions = [(pStartTime, pInitialPortfolio)]
+        positions = [Position(pStartTime, pInitialPortfolio)]
         current_position = pInitialPortfolio
         for i in pTrades:
             current_position = current_position.new_portfolio(i)
-            positions.append((i.time, current_position))
+            positions.append(Position(i.time, current_position))
         return positions
