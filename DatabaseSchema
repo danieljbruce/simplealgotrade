@@ -8,3 +8,16 @@
 # StrategySimulationDetail - columns (stores a StrategySimulation object in the database)
 # Views:
 # qryTimeSeriesDataSummary
+
+# Tables:
+# New schema:
+# TimeSeriesData - columns (dataid, time PK, value) # Any time series data is stored in this table # entity states the type of data it is
+# # Includes prices, commissions, signals, spreads, etc.
+Prices - columns (dataid PK, sourceid, timestamp, ticker, description)
+# # Commissions - columns (dataid PK, sourceid, timestamp, buysellflag, fixedcost, variablecost)
+# DataType - (dataid PK, instrument, sourceid, buysellflag, timestamp)
+# Sources - columns (sourceid, timestamp, description)
+# StrategySimulation - columns (strategyid PK, timestamp, ) (PK: strategyid)
+# StrategySimulationDetail - columns (stores a StrategySimulation object in the database)
+# Views:
+# qryTimeSeriesDataSummary
