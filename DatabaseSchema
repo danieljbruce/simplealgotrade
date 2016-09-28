@@ -9,15 +9,17 @@
 # Views:
 # qryTimeSeriesDataSummary
 
-# Tables:
-# New schema:
-# TimeSeriesData - columns (dataid, time PK, value) # Any time series data is stored in this table # entity states the type of data it is
-# # Includes prices, commissions, signals, spreads, etc.
-Prices - columns (dataid PK, sourceid, timestamp, ticker, description)
-# # Commissions - columns (dataid PK, sourceid, timestamp, buysellflag, fixedcost, variablecost)
-# DataType - (dataid PK, instrument, sourceid, buysellflag, timestamp)
-# Sources - columns (sourceid, timestamp, description)
-# StrategySimulation - columns (strategyid PK, timestamp, ) (PK: strategyid)
-# StrategySimulationDetail - columns (stores a StrategySimulation object in the database)
-# Views:
-# qryTimeSeriesDataSummary
+Plan:
+
+//Entity (id, timestamp, type, description):
+//Example data: (4, ‘2016-05-05044-33-21’, 1, “BTC/ETH close prices from Poloniex”)
+
+EntityType (id, timestamp, url, description):
+Example data: (1, ‘2016-05-05044-33-21’, )
+
+CandlestickEntity (EntityID, Timestamp, SourceID, TickerName, Type, StartTime, EndTime)
+Example data: (4, ‘2016-05-05044-33-21’, 1, ‘BTC_ETH’, ‘Close’, 192000000, 195000000)
+
+
+
+CandlestickSource (SourceID, timestamp, url, BenchmarkTime description)

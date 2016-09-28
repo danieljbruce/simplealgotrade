@@ -2,7 +2,7 @@ __author__ = 'Daniel Bruce'
 
 import sqlite3, csv
 
-def ReadValue(pEntity, pTime, pSource = 0, pDataBaseName = 'simplealgotrade.db'):
+def ReadValue(pEntity, pTime, pSource = 0, pDataBaseName = '/web-interface/simplealgotrade.db'):
     # Returns the most recent value for the Entity pEntity before pTime
     # Test case: No results returned
     # pTime: The number of seconds since 1900 Jan 1, 00:00:00

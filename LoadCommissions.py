@@ -7,7 +7,7 @@ def LoadCommissions():
     # Fills the commissions table with the price required to buy/sell per unit and threshold cost.
     return
 
-def LoadCommissions(pCSVFile, pSource = 0, pDatabaseName = 'simplealgotrade.db'):
+def LoadCommissions(pCSVFile, pSource = 0, pDatabaseName = '/web-interface/simplealgotrade.db'):
     # Program purge before data is entered
     conn = sqlite3.connect(pDatabaseName)
     df = pandas.read_csv(pCSVFile)

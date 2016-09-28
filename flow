@@ -1,0 +1,5 @@
+// get json from server
+test_PoloniexAPI.py.TestPoloniexAPI.test_fetch_chart_data_1
+// import json data
+test_import_poloniex_open_prices.TestImport_poloniex_open_prices.test_import_poloniex_open_prices(self)
+

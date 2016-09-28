@@ -7,21 +7,18 @@ class PoloniexAPI:
 		self.APIKey = APIKey
 		self.Secret = Secret
 
-	def fetch_candlestick_data(self, pPair = "BTC_ETH", pStart = 0, pEnd = 9999999999, pPeriod = 300):
+	def fetch_chart_data(self, pPair = "BTC_ETH", pStart = 0, pEnd = 9999999999, pPeriod = 300):
 		# Valid currency pairs include BTC_ETH, ....
 		# Time is number of seconds since .....
 		# Returns: json of the desired chart data.
 		strPeriod = str(pPeriod)
 		strEnd = str(pEnd)
 		strStart = str(pStart)
+		# Try in Browser: "https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start=0&end=9999999999&period=300"
 		strUrl = "https://poloniex.com/public?command=returnChartData&currencyPair="+pPair+"&start="+strStart+"&end="+strEnd+"&period="+strPeriod
 		response = requests.get(strUrl, verify=True)  # Verify is check SSL certificate
 		data = response.json()
-		complete_data = []
-		complete_data.append(pPair)
-		complete_data.append(data)
-		return complete_data
+		return [pPair, data]
 
 	def get_historical_data(self, pPair, pStart, pEnd, pPeriod):
 		return
-

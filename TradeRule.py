@@ -10,7 +10,7 @@ class TradeRule():
     # assess (Abstract): This method looks at the current position and returns the new desired portfolio position.
     # generateStrategySimulation: This method returns a StrategySimulation based on assess.
 
-    def __init__(self, pDatabase = 'simplealgotrade.db'):
+    def __init__(self, pDatabase = '/web-interface/simplealgotrade.db'):
         self.database = pDatabase
         return
 

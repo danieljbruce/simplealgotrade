@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/codemirror.css">
+        <link rel="stylesheet" href="css/demo.css">
+        
+        <script type="text/javascript" src="js/thirdparty/jquery-3.1.0.min.js"></script>
+        <!-- sqljs scripts -->
+        <script type="text/javascript" src='js/thirdparty/sql.js/js/sql.js'></script>
+
+        <!-- Graphing Scripts -->
+        <script src="https://cdn.plot.ly/plotly-1.8.0.min.js"></script>
+        <script src="js/time-series/time-series-core.js"></script>
+        
+        <!-- Main scripts -->
+        <script type="text/javascript" src='js/main.js'></script>
+    </head>
+    <body> 
+        <h1> SimpleAlgoTrade Web Interface </h1>
+        
+        <div id='sqljs-console' class='sqljs-console'>
+            <label>This is the sqljs console for the simplealgotrade.db database. </label>
+            <!--
+            <label for='commands'>Enter some SQL</label>
+            <br>
+            <textarea id='list-file-output' class='list-file-output'></textarea>
+            <input type='file' id='files' names='files[]' multiple/>
+            --> <!-- We will add this functionality in later -->
+            
+            <div class='write-commands-console'>
+                <label> Enter SQL Commands here to write to the database. </label>
+                <textarea id="text-write-commands" class='text-write-commands'></textarea>
+                <button id='button-write-commands' class='button-write-commands'> Execute Write Commands </button>
+            </div>
+            <div class='read-commands-console'>
+                <label> Enter SQL Commands here to read from the database. </label>
+                <textarea id="text-read-commands" class='text-read-commands'>SELECT * FROM TimeSeriesData;</textarea>
+                <button id='button-read-commands' class='button-read-commands'> Execute Read Commands </button>
+            </div>
+            <textarea id='output' class='output'>
+                Read Command output will appear here in JSON.
+            </textarea>
+        </div>
+        <!--
+        <main>    
+            <textarea id="commands">
+                DROP TABLE IF EXISTS employees;
+                CREATE TABLE employees( id          integer,  name    text,
+                                          designation text,     manager integer,
+                                          hired_on    date,     salary  integer,
+                                          commission  float,    dept    integer);
+
+                INSERT INTO employees VALUES (1,'JOHNSON','ADMIN',6,'1990-12-17',18000,NULL,4);
+                INSERT INTO employees VALUES (2,'HARDING','MANAGER',9,'1998-02-02',52000,300,3);
+                INSERT INTO employees VALUES (3,'TAFT','SALES I',2,'1996-01-02',25000,500,3);
+                INSERT INTO employees VALUES (4,'HOOVER','SALES I',2,'1990-04-02',27000,NULL,3);
+                INSERT INTO employees VALUES (5,'LINCOLN','TECH',6,'1994-06-23',22500,1400,4);
+                INSERT INTO employees VALUES (6,'GARFIELD','MANAGER',9,'1993-05-01',54000,NULL,4);
+                INSERT INTO employees VALUES (7,'POLK','TECH',6,'1997-09-22',25000,NULL,4);
+                INSERT INTO employees VALUES (8,'GRANT','ENGINEER',10,'1997-03-30',32000,NULL,2);
+                INSERT INTO employees VALUES (9,'JACKSON','CEO',NULL,'1990-01-01',75000,NULL,4);
+                INSERT INTO employees VALUES (10,'FILLMORE','MANAGER',9,'1994-08-09',56000,NULL,2);
+                INSERT INTO employees VALUES (11,'ADAMS','ENGINEER',10,'1996-03-15',34000,NULL,2);
+                INSERT INTO employees VALUES (12,'WASHINGTON','ADMIN',6,'1998-04-16',18000,NULL,4);
+                INSERT INTO employees VALUES (13,'MONROE','ENGINEER',10,'2000-12-03',30000,NULL,2);
+                INSERT INTO employees VALUES (14,'ROOSEVELT','CPA',9,'1995-10-12',35000,NULL,1);
+
+                SELECT designation,COUNT(*) AS nbr, (AVG(salary)) AS avg_salary FROM employees GROUP BY designation ORDER BY avg_salary DESC;
+                SELECT name,hired_on FROM employees ORDER BY hired_on;
+            </textarea>
+
+            <button id="execute" class="button">Execute</button>
+            <button id='savedb'  class="button">Save the db</button>
+            <label class="button">Load an SQLite database file: <input type='file' id='dbfile' ></label>
+
+            <div id="error" class="error"></div>
+            
+            <pre id="output">Results will be displayed here</pre>
+            
+            <div class='my-output'>
+                This is where we can see the results of the data.
+            </div>
+            
+        </main>
+        -->
+        <div class='time-series-render-button'> RENDER CHART </div>
+        <div class='time-series-display'>
+            <div class='time-series-selector'></div>
+            <div id="graph" class='graph'></div>
+        </div>
+    </body>
+</html>

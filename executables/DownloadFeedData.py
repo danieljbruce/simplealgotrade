@@ -1,0 +1,3 @@
+from Functions_DownloadCandlestickData import download_candlestick_data_using_candlestick_entity_table;
+
+download_candlestick_data_using_candlestick_entity_table();

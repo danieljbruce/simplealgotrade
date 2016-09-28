@@ -9,7 +9,7 @@ class Portfolio(dict):
             self[k] = v
         return
 
-    def value(self, pTime, pSource = 0, pDatabase = 'simplealgotrade.db'):
+    def value(self, pTime, pSource = 0, pDatabase = '/web-interface/simplealgotrade.db'):
         # Returns the value of the portfolio given time in seconds since 00:00:00 1/1/1900 UTC.
         value = 0
         for k, v in self.items():
