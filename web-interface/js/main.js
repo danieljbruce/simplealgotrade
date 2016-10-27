@@ -102,17 +102,27 @@ g_SendJSONToPlot = function(){
     Plotly.newPlot('graph', finalPlotData, layout);
 }
 
+
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/shared-with-backend/simplealgotrade.db', true);
+//xhr.open('GET', '/shared-with-backend/simplealgotrade.db', true);
+// xhr.open('GET', '/database/timeseriesdata.csv', true);
+xhr.open('GET', '/database/justatest.db', true);
 xhr.responseType = 'arraybuffer';
 xhr.onload = function(e) {
-    var uInt8Array = new Uint8Array(this.response);
-    g_DB = new SQL.Database(uInt8Array);
+    // new SQL.Database(new Uint8Array(this.response)); // Try this in the console.
+    var arrayBuffer = xhr.response;
+    var data = new Uint8Array(arrayBuffer);
+    g_DB = new SQL.Database(data);
+    // g_DB.exec("SELECT * FROM SQLITE_MASTER"); // This should give us a list tables in the database // Try this in the console.
+    // g_DB.prepare("SELECT * FROM TimeSeriesData"); // Try this in the console.
     g_PopulateTimeSeriesSelector();
     $('.time-series-selector input').click(function(){g_UpdateJSONForChart();});
     //var contents = db.exec("SELECT * FROM my_table");
     // contents is now [{columns:['col1','col2',...], values:[[first row], [second row], ...]}]
     var elements = $('.')
+};
+xhr.onerror = function(e){
+    console.log("Could not load the SQLite database.");
 };
 xhr.send();
 
